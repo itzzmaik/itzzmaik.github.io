@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Owner Login</title>
+
+  <style>
+    body {
+      background: #121212;
+      color: #fff;
+      font-family: Arial;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .login-box {
+      background: #1e1e1e;
+      width: 350px;
+      padding: 30px;
+      border-radius: 15px;
+      border: 2px solid #ff9900;
+      margin: 120px auto;
+      box-shadow: 0 0 15px rgba(255,153,0,0.3);
+    }
+
+    h2 {
+      color: #ff9900;
+      font-size: 32px;
+      margin-bottom: 25px;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: none;
+      font-size: 18px;
+    }
+
+    .btn {
+      background: #ff9900;
+      color: #000;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 95%;
+    }
+
+    .btn:hover {
+      background: #fff;
+    }
+
+    .error {
+      color: #ff4444;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-box">
+    <h2>Owner Login</h2>
+
+    <input type="password" id="pw" placeholder="Owner Passwort">
+
+    <button class="btn" onclick="login()">Login</button>
+
+    <p class="error" id="error"></p>
+  </div>
+
+  <script>
+    function login() {
+      const pw = document.getElementById("pw").value;
+
+      // ⭐ DEIN OWNER PASSWORT
+      const ownerPW = "NytroOwner2024";
+
+      if (pw === ownerPW) {
+        // Login speichern
+        localStorage.setItem("ownerLoggedIn", "true");
+
+        // Weiterleitung
+        window.location.href = "owner-dashboard.html";
+      } else {
+        document.getElementById("error").innerText = "Falsches Passwort!";
+      }
+    }
+  </script>
+
+</body>
+</html>
