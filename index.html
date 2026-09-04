@@ -39,6 +39,44 @@
       color: #ffffff;
     }
 
+    /* ANIMIERTER BANNER */
+    .banner {
+      width: 100%;
+      margin-top: 20px;
+      animation: moveBanner 6s infinite alternate ease-in-out, glow 3s infinite;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes moveBanner {
+      0% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-12px) scale(1.02); }
+      100% { transform: translateY(0px) scale(1); }
+    }
+
+    @keyframes glow {
+      0% { filter: brightness(1); }
+      50% { filter: brightness(1.35); }
+      100% { filter: brightness(1); }
+    }
+
+    .banner::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
+      animation: shine 5s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      50% { left: 100%; }
+      100% { left: 100%; }
+    }
+
     /* MAIN CONTENT */
     h1 {
       font-size: 85px;
@@ -89,6 +127,9 @@
     <a href="/terms-of-service">Nutzungsbedingungen</a>
     <a href="/privacy-policy">Datenschutz</a>
   </div>
+
+  <!-- ⭐ BANNER EINGEFÜGT -->
+  <img src="banner.png" class="banner" alt="NYTRO Minecraft RP Banner">
 
   <!-- MAIN -->
   <h1>NYTRO ⚡🔥</h1>
